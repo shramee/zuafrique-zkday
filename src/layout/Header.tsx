@@ -1,64 +1,21 @@
-import { useState } from 'react';
-import { Menu, X } from 'lucide-react';
-import Link from '../components/Link';
-import { navItems } from '../lib/config';
+import { eventDetails } from '@/pages/Landing';
 
 const Header = () => {
-	const [isMenuOpen, setIsMenuOpen] = useState(false);
-	const currentPath = window.location.pathname;
 
 	return (
-		<header className="bg-white shadow-md">
-			<nav className="container mx-auto px-4 py-4">
-				<div className="flex justify-between items-center">
-					{/* Logo */}
-					<Link to="/" className="text-2xl font-bold text-blue-600">
-						Logo
-					</Link>
-
-					{/* Desktop Navigation */}
-					<div className="hidden md:flex space-x-8">
-						{navItems.map((item) => (
-							<Link
-								key={item.path}
-								to={item.path}
-								className={`transition-colors ${currentPath === item.path
-									? 'text-blue-600 font-semibold'
-									: 'text-gray-600 hover:text-blue-600'
-									}`}
-							>
-								{item.label}
-							</Link>
-						))}
-					</div>
-
-					{/* Mobile Menu Button */}
-					<button
-						className="md:hidden"
-						onClick={() => setIsMenuOpen(!isMenuOpen)}
-					>
-						{isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-					</button>
+		<header className="bg-black w-full py-4 px-6 flex justify-between items-center">
+			<div className="flex items-center">
+				<div className="flex items-center justify-center mr-3">
+					<img src="https://zuafrique.com/images/logo.png" alt="ZuAfrique Logo" className="w-10 md:w-12 h-10 md:h-12 object-cover object-left" />
 				</div>
-
-				{/* Mobile Navigation */}
-				{isMenuOpen && (
-					<div className="md:hidden mt-4 space-y-4">
-						{navItems.map((item) => (
-							<Link
-								key={item.path}
-								to={item.path}
-								className={`block transition-colors ${currentPath === item.path
-									? 'text-blue-600 font-semibold'
-									: 'text-gray-600 hover:text-blue-600'
-									}`}
-							>
-								{item.label}
-							</Link>
-						))}
-					</div>
-				)}
-			</nav>
+				<span className="text-white text-2xl md:text-4xl font-extralight">ZuAfrique</span>
+			</div>
+			<div>
+				<div className="border border-2 font-bold border-orange-500 text-orange-500 rounded-full px-6 py-2">
+					<span className="hidden md:block">{eventDetails.title}</span>
+					<span className="md:hidden">ZK Day</span>
+				</div>
+			</div>
 		</header>
 	);
 };
