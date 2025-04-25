@@ -1,157 +1,136 @@
 import React from 'react';
-import { CheckCircle, ArrowRight, BarChart, Shield, Zap, Users } from 'lucide-react';
 
 const Landing = () => {
+	// Customizable event details
+	const eventDetails = {
+		date: "Tuesday, 29th April",
+		title: "Zero Knowledge Day",
+		tagline: "Demystifying Zero Knowledge proofs",
+		sessions: [
+			{
+				title: "ZK Mechanics & Primitives",
+				points: [
+					"Core concepts behind zero-knowledge proofs",
+					"Key primitives and practical applications in blockchain"
+				]
+			},
+			{
+				title: "The Math & Inner Workings",
+				points: [
+					"Mathematical foundations made accessible",
+					"Building intuition behind homomorphic encryption"
+				]
+			},
+			{
+				title: "Building with Noir",
+				points: [
+					"Deep dive into the Noir language",
+					"Step-by-step circuit building walkthrough"
+				]
+			},
+			{
+				title: "From Circuit to Deployment",
+				points: [
+					"End-to-end implementation workflow",
+					"On-chain deployment & frontend integration"
+				]
+			}
+		]
+	};
+
 	return (
-		<div className="min-h-screen">
-			{/* Hero Section */}
-			<section className="bg-gradient-to-r from-blue-600 to-blue-700 text-white py-20">
-				<div className="container mx-auto px-4">
-					<div className="max-w-4xl mx-auto text-center">
-						<h1 className="text-4xl md:text-6xl font-bold mb-6">
-							Streamline Your Workflow with Our Platform
-						</h1>
-						<p className="text-xl md:text-2xl mb-8 text-blue-100">
-							Boost productivity and improve team collaboration with our all-in-one solution.
-						</p>
-						<div className="flex flex-col sm:flex-row gap-4 justify-center">
-							<button className="bg-white text-blue-600 px-8 py-3 rounded-lg text-lg font-semibold hover:bg-blue-50 transition-colors">
-								Get Started Free
-							</button>
-							<button className="border border-white text-white px-8 py-3 rounded-lg text-lg font-semibold hover:bg-white/10 transition-colors">
-								Book a Demo
-							</button>
-						</div>
+		<div className="bg-black min-h-screen text-white font-sans">
+			{/* Header */}
+			<header className="w-full py-4 px-6 flex justify-between items-center">
+				<div className="flex items-center">
+					<div className="flex items-center justify-center mr-3">
+						<img src="https://zuafrique.com/images/logo.png" alt="ZuAfrique Logo" className="w-12 h-12" />
+					</div>
+					<span className="text-white text-2xl font-bold">ZUAFRIQUE</span>
+				</div>
+				<div>
+					<div className="border border-orange-500 text-orange-500 rounded-full px-6 py-2">
+						{eventDetails.title}
 					</div>
 				</div>
-			</section>
+			</header>
 
-			{/* Social Proof */}
-			<section className="py-12 bg-gray-50">
-				<div className="container mx-auto px-4">
-					<p className="text-center text-gray-600 mb-8">Trusted by teams at</p>
-					<div className="flex flex-wrap justify-center gap-12 opacity-60">
-						{['Company 1', 'Company 2', 'Company 3', 'Company 4'].map((company) => (
-							<div key={company} className="text-2xl font-bold text-gray-400">
-								{company}
-							</div>
-						))}
-					</div>
+			{/* Announcement Bar */}
+			<div className="w-full bg-orange-500 py-4">
+				<div className="max-w-6xl mx-auto px-6">
+					<p className="text-black font-semibold text-xl">
+						{eventDetails.date} - {eventDetails.tagline}
+					</p>
 				</div>
-			</section>
+			</div>
 
-			{/* Features */}
-			<section className="py-20">
-				<div className="container mx-auto px-4">
-					<div className="text-center max-w-2xl mx-auto mb-16">
-						<h2 className="text-3xl md:text-4xl font-bold mb-4">
-							Everything you need to scale your business
-						</h2>
-						<p className="text-xl text-gray-600">
-							Our platform provides all the tools you need to manage and grow your business effectively.
-						</p>
-					</div>
+			{/* Main Content */}
+			<main className="max-w-6xl mx-auto px-6 py-12 flex flex-col lg:flex-row gap-10">
+				{/* Left Section - Main Heading */}
+				<div className="lg:w-1/2">
+					<h1 className="text-6xl font-black mb-6">
+						<span className="bg-gradient-to-r from-yellow-400 to-orange-500 bg-clip-text text-transparent">
+							Zero<br />Knowledge<br />Day
+						</span>
+					</h1>
 
-					<div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-						{[
-							{
-								icon: <BarChart className="w-8 h-8 text-blue-600" />,
-								title: 'Advanced Analytics',
-								description: 'Get detailed insights into your business performance with real-time analytics.'
-							},
-							{
-								icon: <Shield className="w-8 h-8 text-blue-600" />,
-								title: 'Enterprise Security',
-								description: 'Keep your data safe with our enterprise-grade security features.'
-							},
-							{
-								icon: <Zap className="w-8 h-8 text-blue-600" />,
-								title: 'Lightning Fast',
-								description: 'Experience lightning-fast performance with our optimized platform.'
-							},
-							{
-								icon: <Users className="w-8 h-8 text-blue-600" />,
-								title: 'Team Collaboration',
-								description: 'Work together seamlessly with your team in real-time.'
-							}
-						].map((feature, index) => (
-							<div key={index} className="p-6 bg-white rounded-lg shadow-lg">
-								{feature.icon}
-								<h3 className="text-xl font-bold mt-4 mb-2">{feature.title}</h3>
-								<p className="text-gray-600">{feature.description}</p>
-							</div>
-						))}
-					</div>
+					<p className="text-lg mb-8">
+						Join us for an immersive day exploring zero-knowledge technology. Learn from fundamentals to practical applications in a collaborative environment designed for both beginners and experts.
+					</p>
+
+					<a
+						href="#register"
+						className="inline-block bg-gradient-to-r from-yellow-400 to-orange-500 rounded-full px-8 py-3 text-black font-bold text-lg"
+					>
+						Register Now
+					</a>
 				</div>
-			</section>
 
-			{/* Pricing */}
-			<section className="py-20 bg-gray-50">
-				<div className="container mx-auto px-4">
-					<div className="text-center max-w-2xl mx-auto mb-16">
-						<h2 className="text-3xl md:text-4xl font-bold mb-4">Simple, transparent pricing</h2>
-						<p className="text-xl text-gray-600">Choose the plan that's right for you</p>
+				{/* Right Section - Africa Image and Sessions */}
+				<div className="lg:w-1/2 relative">
+					<div className="absolute inset-0 flex justify-center">
+						<img
+							src="https://zuafrique.com/images/website/landing/africa.svg"
+							alt="Africa"
+							className="w-full h-full object-contain opacity-50"
+						/>
 					</div>
+					<div className="relative z-10 space-y-6">
+						<h2 className="text-2xl font-bold text-orange-400 mb-4">Sessions</h2>
 
-					<div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-						{[
-							{
-								name: 'Starter',
-								price: '$29',
-								description: 'Perfect for small teams',
-								features: ['Up to 5 users', '5GB storage', 'Basic analytics', 'Email support']
-							},
-							{
-								name: 'Professional',
-								price: '$99',
-								description: 'For growing businesses',
-								features: ['Up to 20 users', '50GB storage', 'Advanced analytics', 'Priority support']
-							},
-							{
-								name: 'Enterprise',
-								price: 'Custom',
-								description: 'For large organizations',
-								features: ['Unlimited users', 'Unlimited storage', 'Custom analytics', '24/7 support']
-							}
-						].map((plan, index) => (
-							<div key={index} className="bg-white rounded-lg shadow-lg p-8">
-								<h3 className="text-2xl font-bold mb-2">{plan.name}</h3>
-								<div className="text-4xl font-bold mb-2">{plan.price}</div>
-								<p className="text-gray-600 mb-6">{plan.description}</p>
-								<ul className="space-y-3 mb-8">
-									{plan.features.map((feature, i) => (
-										<li key={i} className="flex items-center gap-2">
-											<CheckCircle className="w-5 h-5 text-green-500" />
-											<span>{feature}</span>
+						{eventDetails.sessions.map((session, index) => (
+							<div key={index} className="border-l-4 border-orange-500 pl-4 py-2">
+								<h3 className="text-xl font-bold text-orange-400 mb-2">{session.title}</h3>
+								<ul className="space-y-1">
+									{session.points.map((point, idx) => (
+										<li key={idx} className="flex items-start">
+											<span className="text-orange-400 mr-2">•</span>
+											<span>{point}</span>
 										</li>
 									))}
 								</ul>
-								<button className="w-full bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors">
-									Get Started
-								</button>
 							</div>
 						))}
-					</div>
-				</div>
-			</section>
 
-			{/* CTA */}
-			<section className="py-20 bg-blue-600 text-white">
-				<div className="container mx-auto px-4">
-					<div className="max-w-3xl mx-auto text-center">
-						<h2 className="text-3xl md:text-4xl font-bold mb-4">
-							Ready to transform your business?
-						</h2>
-						<p className="text-xl mb-8 text-blue-100">
-							Join thousands of satisfied customers who are already using our platform.
-						</p>
-						<button className="bg-white text-blue-600 px-8 py-3 rounded-lg text-lg font-semibold hover:bg-blue-50 transition-colors inline-flex items-center gap-2">
-							Get Started Now
-							<ArrowRight className="w-5 h-5" />
-						</button>
+						<div className="mt-8 p-4 bg-gray-900 rounded-lg">
+							<h3 className="text-xl font-bold text-orange-400 mb-2">Who Should Attend?</h3>
+							<p>Developers, blockchain enthusiasts, privacy advocates, and anyone curious about the future of digital privacy technology.</p>
+						</div>
 					</div>
 				</div>
-			</section>
+			</main>
+
+			{/* Footer */}
+			<footer className="w-full bg-gray-900 py-6">
+				<div className="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center">
+					<p className="text-gray-400 mb-4 md:mb-0">Organized by Shramee @ ZuAfrique</p>
+					<div className="flex gap-4">
+						<a href="#" className="text-orange-400 hover:text-orange-300">Event Details</a>
+						<a href="#" className="text-orange-400 hover:text-orange-300">Contact</a>
+						<a href="#" className="text-orange-400 hover:text-orange-300">ZuAfrique.com</a>
+					</div>
+				</div>
+			</footer>
 		</div>
 	);
 };
